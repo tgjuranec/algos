@@ -1,6 +1,9 @@
+targetdir := target
+
 all: algos
 
 algos: algos.c
-	gcc algos.c -o algos
+	mkdir -p $(targetdir)
+	gcc algos.c -o $(targetdir)/algos
 clean:
-	rm -f algos
+	rm -fr $(targetdir)
