@@ -13,7 +13,7 @@ pipeline {
                 echo 'Building..'
 		sh 'make clean'
                 sh 'make'
-            }
+		archiveArtifacts artifacts: '**/target/*', fingerprint: true             }
         }
         stage('Test') {
             steps {
