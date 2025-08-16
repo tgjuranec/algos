@@ -1,8 +1,8 @@
-#define STARTPRICE 30
-#define INCREASEPERM 8
+#define STARTPRICE 30LL
+#define INCREASEPERM 8LL
 
 long long getprice(int depth){
-	long long sum = 0;
+	long long sum = 0LL;
 	int i = 0;
 	for(i = 0; i < depth; i++){
 		sum += (STARTPRICE + i*INCREASEPERM);
@@ -10,3 +10,8 @@ long long getprice(int depth){
 	return sum;
 }
 
+
+long long getprice_fast(int depth){
+	long long sum = STARTPRICE*(depth) + INCREASEPERM*depth*(depth-1)/2;
+	return sum;
+}
