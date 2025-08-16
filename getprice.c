@@ -1,9 +1,14 @@
-#define STARTPRICE 30LL
-#define INCREASEPERM 8LL
+#define STARTPRICE 30ULL
+#define INCREASEPERM 8ULL
+#define EARTHDIAMETER 12756000U
 
-long long getprice(int depth){
-	long long sum = 0LL;
-	int i = 0;
+
+unsigned long long getprice(unsigned int depth){
+	if(depth > EARTHDIAMETER){
+		return 0xFFFFFFFFFFFFFFFF;
+	}
+	unsigned long long sum = 0LL;
+	unsigned int i = 0;
 	for(i = 0; i < depth; i++){
 		sum += (STARTPRICE + i*INCREASEPERM);
 	}
@@ -11,7 +16,10 @@ long long getprice(int depth){
 }
 
 
-long long getprice_fast(int depth){
-	long long sum = STARTPRICE*(depth) + INCREASEPERM*depth*(depth-1)/2;
+unsigned long long getprice_fast(unsigned int depth){
+	if(depth > EARTHDIAMETER){
+		return 0xFFFFFFFFFFFFFFFF;
+	}
+	unsigned long long sum = STARTPRICE*(depth) + INCREASEPERM*depth*(depth-1)/2;
 	return sum;
 }
